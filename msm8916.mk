@@ -203,7 +203,16 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
     libshim_ril \
-    libxml2
+    libxml2 \
+    libprotobuf-cpp-full
+
+# Telephony packages
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -248,4 +257,4 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, vendor/aquarios/configs/aquarios_phone.mk)
+$(call inherit-product, vendor/aquarios/products/aquarios_phone.mk)
