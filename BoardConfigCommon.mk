@@ -74,6 +74,7 @@ BOARD_NO_CHARGER_LED := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw
 
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
