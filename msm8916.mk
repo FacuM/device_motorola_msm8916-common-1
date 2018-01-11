@@ -77,6 +77,7 @@ PRODUCT_COPY_FILES +=  \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
 # Camera
@@ -186,6 +187,7 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    init.qcom.bt.sh \
     init.qcom.ril.sh \
     stml0xx_wrapper.sh
 
@@ -245,6 +247,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
+# Copy empty files to satisfy Nitrogen needs
+
+PRODUCT_COPY_FILES := \
+    device/motorola/msm8916-common/rootdir/etc/apns-conf.xml:system/etc/apns-conf.xml
+
 $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, vendor/gzosp/config/common_full_phone.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
